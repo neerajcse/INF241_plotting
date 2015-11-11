@@ -21,7 +21,7 @@ def test_matplotlib(request):
     canvas = FigureCanvasAgg(f)    
     response = HttpResponse(content_type='image/png')
     canvas.print_png(response)
-	matplotlib.pyplot.close(f)
+    matplotlib.pyplot.close(f)
     return response
 
 	
