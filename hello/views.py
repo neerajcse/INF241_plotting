@@ -20,13 +20,15 @@ def index(request):
 
 def test_matplotlib(request):
     date = plt.figure()
-    x = [datetime.datetime(2010, 12, 1, 10, 0),
-         datetime.datetime(2011, 1, 4, 9, 0),
-         datetime.datetime(2011, 5, 5, 9, 0)]
+    N = len( data )
+    x = np.arange(1, N+1)
     y = [float(x) for x in request.GET.get('values').split(",")]
-    ax = plt.subplot(111)
-    ax.bar(x, y, width=10)
-    ax.xaxis_date()
+    labels = [ "Monday", "Tuesday", "Wednesday" ]
+    width = 1
+    bar1 = plt.bar( x, y, width, color="y" )
+    plt.ylabel( 'Consumption' )
+    plt.xticks(x + width/2.0, labels )
+    
     canvas = FigureCanvasAgg(date)
     response = HttpResponse(content_type='image/png')
     canvas.print_png(response)
