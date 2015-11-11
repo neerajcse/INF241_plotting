@@ -2,6 +2,7 @@ from pylab import figure, axes, pie, title
 from matplotlib.backends.backend_agg import FigureCanvasAgg
 from django.shortcuts import render
 from django.http import HttpResponse
+import matplotlib.pyplot
 
 from .models import Greeting
 
@@ -17,11 +18,10 @@ def test_matplotlib(request):
     explode=(0, 0.05, 0, 0)
     pie(fracs, explode=explode, labels=labels, autopct='%1.1f%%', shadow=True)
     title('Raining Hogs and Dogs', bbox={'facecolor':'0.8', 'pad':5})
-
     canvas = FigureCanvasAgg(f)    
     response = HttpResponse(content_type='image/png')
     canvas.print_png(response)
-    matplotlib.pyplot.close(f)
+	matplotlib.pyplot.close(f)
     return response
 
 	
