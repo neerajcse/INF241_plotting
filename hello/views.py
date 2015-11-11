@@ -32,7 +32,7 @@ def test_matplotlib(request):
     canvas = FigureCanvasAgg(date)
     response = HttpResponse(content_type='image/png')
     canvas.print_png(response)
-    matplotlib.pyplot.close(f)
+    plt.close(f)
     return response
 
 	
