@@ -20,14 +20,14 @@ def index(request):
 
 def plot(request):
     y = [float(x) for x in request.GET.get('values').split(",")]
-    date = plt.figure(figsize=(8, 6))
+    date = plt.figure(figsize=(8, 6), facecolor="#2A2A2A")
     N = len( y )
     x = np.arange(1, N+1)
     rotation = datetime.datetime.today().weekday()
     days = [ "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" ]
     labels = days[-rotation:] + days[:-rotation] 
     width = 0.5
-    bar1 = plt.bar( x, y, width, color="y", axisbg="2A2A2A" )
+    bar1 = plt.bar( x, y, width, color="y")
     plt.ylabel( 'Consumption' )
     plt.xticks(x + width/2.0, labels )
     
