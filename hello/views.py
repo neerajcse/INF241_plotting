@@ -36,6 +36,3 @@ def plot(request):
     canvas.print_png(response)
     plt.close(date)
     return response
-
-def hand_image(request):
-
