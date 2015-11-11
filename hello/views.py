@@ -19,10 +19,10 @@ def index(request):
     return render(request, 'index.html')
 
 def test_matplotlib(request):
-    date = plt.figure()
-    N = len( data )
-    x = np.arange(1, N+1)
     y = [float(x) for x in request.GET.get('values').split(",")]
+    date = plt.figure()
+    N = len( y )
+    x = np.arange(1, N+1)
     labels = [ "Monday", "Tuesday", "Wednesday" ]
     width = 1
     bar1 = plt.bar( x, y, width, color="y" )
