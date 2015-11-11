@@ -25,8 +25,8 @@ def test_matplotlib(request):
     x = np.arange(1, N+1)
     rotation = datetime.datetime.today().weekday()
     days = [ "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" ]
-    labels = d[-rotation:] + d[:-rotation] 
-    width = 1
+    labels = days[-rotation:] + days[:-rotation] 
+    width = 0.5
     bar1 = plt.bar( x, y, width, color="y" )
     plt.ylabel( 'Consumption' )
     plt.xticks(x + width/2.0, labels )
