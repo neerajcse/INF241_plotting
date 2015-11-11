@@ -11,8 +11,7 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^$', hello.views.index, name='index'),
-	url(r'^plot', hello.views.test_matplotlib, name='index'),
-    url(r'^db', hello.views.db, name='db'),
+	url(r'^plot', hello.views.plot, name='index'),
     url(r'^admin/', include(admin.site.urls)),
 
 )

@@ -18,16 +18,16 @@ from .models import Greeting
 def index(request):
     return render(request, 'index.html')
 
-def test_matplotlib(request):
+def plot(request):
     y = [float(x) for x in request.GET.get('values').split(",")]
-    date = plt.figure()
+    date = plt.figure(figsize=(8, 6))
     N = len( y )
     x = np.arange(1, N+1)
     rotation = datetime.datetime.today().weekday()
     days = [ "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" ]
     labels = days[-rotation:] + days[:-rotation] 
     width = 0.5
-    bar1 = plt.bar( x, y, width, color="y" )
+    bar1 = plt.bar( x, y, width, color="y", axisbg="2A2A2A" )
     plt.ylabel( 'Consumption' )
     plt.xticks(x + width/2.0, labels )
     
@@ -37,10 +37,5 @@ def test_matplotlib(request):
     plt.close(date)
     return response
 
-	
-def db(request):
-    greeting = Greeting()
-    greeting.save()
-    greetings = Greeting.objects.all()
-    return render(request, 'db.html', {'greetings': greetings})
+def hand_image(request):
 
