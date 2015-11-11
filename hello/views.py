@@ -23,7 +23,9 @@ def test_matplotlib(request):
     date = plt.figure()
     N = len( y )
     x = np.arange(1, N+1)
-    labels = [ "Monday", "Tuesday", "Wednesday" ]
+    rotation = datetime.datetime.today().weekday()
+    days = [ "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" ]
+    labels = d[-rotation:] + d[:-rotation] 
     width = 1
     bar1 = plt.bar( x, y, width, color="y" )
     plt.ylabel( 'Consumption' )
