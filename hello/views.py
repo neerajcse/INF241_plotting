@@ -20,7 +20,7 @@ def index(request):
 
 def plot(request):
     y = [float(x) for x in request.GET.get('values').split(",")]
-    date = plt.figure(figsize=(8, 4), facecolor="#2A2A2A")
+    date = plt.figure(figsize=(8, 3), facecolor="#2A2A2A")
     N = len( y )
     x = np.arange(1, N+1)
     rotation = datetime.datetime.today().weekday()
