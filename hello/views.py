@@ -1,3 +1,5 @@
+from pylab import figure, axes, pie, title
+from matplotlib.backends.backend_agg import FigureCanvasAgg
 from django.shortcuts import render
 from django.http import HttpResponse
 
